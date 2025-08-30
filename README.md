@@ -13,119 +13,120 @@ If you are a developer and want to keep every version of your code/project (whic
 
 ## Commands
 
-Set global username and email for Git (Locally).
+This guide defines the **standard Git workflow** for the project. Following these practices ensures a clean history, reduces conflicts, and makes collaboration easier across the team.
 
-```sh
-git config --global user.name "<your username>"
-git config --global user.email "<your email>"
+---
+
+## 🛠️ Git Workflow
+
+### 1️⃣ Clone the repository
+```bash
+git clone <repository_url>
 ```
 
-Initialise an empty Git Repository
-
-```sh
-git init
+### 2️⃣ Navigate into the project directory
+```bash
+cd ascendum_poc
 ```
 
-Clone an existing Git Repository 
-
-```sh
-git clone <repository URL>
+### 3️⃣ Checkout the base branch  
+Replace `original_branch_name` with the actual base branch (e.g., `develop` or `main`):
+```bash
+git checkout original_branch_name
 ```
 
-Add file/stage to git
-
-```sh
-git add <filename>
+### 4️⃣ Pull the latest changes
+```bash
+git pull origin original_branch_name
 ```
 
-Add all the files to git
+### 5️⃣ Create and switch to a new feature branch  
+Use a clear, descriptive branch name. For example:
+```bash
+git checkout -b feature/order_tracking_shivam
+```
 
-```sh
+### 6️⃣ View commit history (optional)
+```bash
+git log              # detailed log
+git log --oneline    # condensed log
+```
+
+### 7️⃣ Delete a remote branch (if required)
+```bash
+git push origin --delete branch_name
+```
+
+---
+
+## 🧪 Development Workflow
+
+### Stage your changes
+```bash
 git add .
 ```
 
-Commit all the staged files to git
-
-```sh
-git commit -m "<your commit message>"
-```
-
-Restore the file from being modified to Tracked
-
-```sh
-git restore <filename>
-git checkout <filename>
-```
-
-Show the status of your Git respository
-
-```sh
+### Check the status
+```bash
 git status
 ```
 
-Show the branches of your git repository
-
-```sh
-git branch
+### Commit with a descriptive message  
+Example messages:
+- "Added API for order tracking"
+- "Fixed UI issue in header"
+```bash
+git commit -m "Your descriptive commit message"
 ```
 
-Checkout to a new branch
-
-```sh
-git checkout -b <branch name>
+### Pull latest changes from base branch to stay updated  
+Replace `main_branch_name` with your branch (`main` or `develop`):
+```bash
+git pull origin main_branch_name
 ```
 
-Checkout to an existing branch
-
-```sh
-git checkout <branch name>
+### Push your feature branch to remote
+```bash
+git push origin your_branch_name
 ```
 
-Remove a branch from Git
+---
 
-```sh
-git branch -d <branch name>
+## ✅ Git Best Practices
+
+- 🔄 **Always pull before pushing** to avoid merge conflicts.  
+- 📝 **Write clear, meaningful commit messages**.  
+- 🌿 **Never commit directly to `main` or `develop`.** Always use a feature branch.  
+- 📥 **Regularly rebase or pull from `main`/`develop`** to keep your branch updated.  
+- 🧪 **Test your changes locally** before committing or pushing.  
+- 🔍 **Pull Request (PR) Guidelines:**
+  - Ensure the PR compares against the correct base branch.
+  - Provide a clear **title and description** of your changes.
+  - 👥 Assign at least **one reviewer** for code review.
+- 🚫 **Do not merge your own PR.** Merges should be handled by reviewers/leads after approval.  
+
+---
+
+## 📌 Example Workflow
+
+**✅ Correct Workflow:**
+```
+Base Branch: develop
+Feature Branch: feature/order_tracking_system <- shivam_changes
 ```
 
-Show remote origin URL
-
-```sh
-git remote -v
+**❌ Incorrect Workflow:**
+```
+Base Branch: main <- shivam_changes
 ```
 
-Add remote origin URL
+---
 
-```sh
-git remote add origin <your remote git URL>
-```
+## 👥 Team Collaboration Notes
 
-Remove remote origin URL
+- Use **Pull Requests (PRs)** for all code contributions.  
+- **Assign reviewers** and wait for approvals before merging.  
+- **Document major changes or decisions** in the PR description for clarity.  
 
-```sh
-git remote remove origin 
-```
+---
 
-Fetch all the remote branches
-
-```sh
-git fetch
-```
-Push your local changes to remote branch
-
-```sh
-git push origin <branch name>
-```
-
-Pull your remote changes to local branch
-
-```sh
-git pull origin <branch name>
-```
-
-Check you git commits and logs
-
-```sh
-git log
-```
-
-**Happy Learning!**
